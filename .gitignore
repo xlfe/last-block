@@ -1,0 +1,6 @@
+# Reproducible static output and local preview/browser evidence.
+/dist/
+/.playwright-mcp/
+/docs/qa-evidence/
+__pycache__/
+*.pyc

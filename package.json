@@ -1,0 +1,13 @@
+{
+  "name": "the-last-block",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A local analogue railway control-room game; buildless browser source with prepared photo assets.",
+  "scripts": {
+    "start": "npm run build && python3 -m http.server 8080 --bind 127.0.0.1 --directory dist",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check app/sim.mjs && node --check app/app.mjs && node --check app/sound.mjs",
+    "build": "python3 scripts/build.py"
+  }
+}
