@@ -17,6 +17,8 @@ Four short shifts introduce operation, opposing trains, work protection and a su
 - `app/network.mjs`: deterministic graph model. Atomic complete-path reservations, live point checks, ordered geometry-based movement and tail occupancy, structured reports and validated snapshots. The classic simulation remains unchanged.
 - `app/network-ui.mjs` and `app/workspace.css`: the full-viewport network map, optional browser fullscreen, persistent HUD, whole-row Services selection, route/point/report sheets and attention views. It delegates operational changes to the command API.
 - `app/network-renderer.mjs` and `app/graph.css`: generic stable SVG diagram and transform camera; geometry and live resource/point state drive the same drawn graph. It does not decide route safety.
+- `app/continuous.mjs`: bounded seeded traffic admission, freight return itineraries and aggregate continuous-session score, reusing the network authority model.
+- `app/offline.mjs` and `app/sw.js`: discreet offline status and the versioned public-asset worker template; the build supplies exact asset hashes without changing game-save storage.
 - `app/sound.mjs`: user-gesture-unlocked Web Audio effects and persisted mute. No audio files or external assets. A rejected/suspended context produces a visible Retry sound state. Automatic events never attempt to bypass autoplay restrictions.
 - `scripts/build.py`: copies hand-authored app files and prepares 2200-pixel web photographs from three original JPEG inputs. Python 3 and Pillow are preparation prerequisites; generated `dist/` is ignored.
 - `app/index.html`: semantic shell, initial loading message and local module entry point. No remote network assets.
@@ -44,3 +46,5 @@ The network shift now uses a six-location graph with 94 nodes, 104 edges, 25 tur
 Classic `last-block-save-v1` is unchanged. The new graph uses `last-block-network-v2`, validates schema/content IDs and canonical paths, and restores paused. Old network v1 remains stored, with an explicit new-layout notice. Invalid v2 data is retained until the player explicitly starts afresh. Audio preferences remain independent.
 
 Assistance and pace are separate settings. Important reports pause Guided once per event; Independent remains live. Navigation and report reading do not pause. Help/Journal and hidden tabs pause globally. Preview confirmation rechecks live conditions even if the map or clock changed. Point selection and camera movement grant no authority. See [graph/rendering architecture](graph-rendering-architecture.md) for the data and renderer contracts, validation and limitations.
+
+See [offline and continuous architecture](offline-continuous.md) for per-event banner dismissal, independent mode saves, rolling traffic and atomic cached releases.

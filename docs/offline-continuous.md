@@ -1,0 +1,35 @@
+# Dismissible notices, continuous traffic and offline copies
+
+These additions preserve the full-viewport network workspace, classic four-shift campaign and fixed seven-service graph shift. They do not change route proof, atomic resource acquisition, point locking or tail clearance.
+
+## A banner is not a protection
+
+Every report now has optional `dismissed` state. The `dismiss` command hides that event's banner without acknowledging or resolving it, changing the clock, or releasing its work protection. Reports retains the item and offers Show banner. The report badge and protected map indication remain visible. A later completion report has its own event ID and initially appears even if the earlier notice was dismissed. Old fixed snapshots without this field remain valid and treat it as false.
+
+## One continuing railway
+
+The briefing offers Fixed shift or Continuous. Mode selection loads a separate saved desk; it does not transplant trains between modes. Fixed progress remains in `last-block-network-v2`, continuous progress uses `last-block-continuous-v1`, and the classic save is unchanged. A last-mode preference controls which desk is offered on return. New session requires an explicit Start; opening a summary or pausing never resets or banks a duplicate reward.
+
+`createContinuousState({seed, assistance, pace})` uses the same network command/step API. `app/continuous.mjs` owns the deterministic traffic stream and aggregate score. A saved xorshift state and shuffled bag of seven authored itinerary templates give unique sequential service IDs and a repeatable origin mix. No railway clock, resource, event sequence or score resets between bags. New services are admitted at 45–70 railway-second intervals when there is room, with at most four roster entries including boundary queues and scheduled arrivals. Their arrival and due times are assigned on admission; held, uncreated traffic is not already late.
+
+Continuous freight visits a siding, remains physically occupied during a 30-second cargo dwell, then needs an operator-proved route back through reception and onwards to an outer boundary. It is not deleted or marked finished in its siding. Only final boundary completion earns points and retires the service. This frees the siding through ordinary movement/tail clearance for later freight.
+
+Each completed service contributes `max(25, 100 - floor(weightedLateSeconds / 15))` points; passenger delay has weight two and freight delay weight one. No point/route clicks, pauses, notice dismissals or refused unsafe requests earn or lose points. Lifetime points, completed/on-time/late counts, total delay and the last award are saved. Completed-work quality is the average service award, labelled as a percentage. Services and the paused session summary also show Late now, so a growing backlog is visible before completion. The session summary offers return to the same session or explicit new-session options. There is no seven-service handover in Continuous.
+
+State remains bounded: four train entries, at most one routine active task per train, the current work condition, twenty recent resolved reports and a 150-entry journal. Completed boundary trains are retired after their score is recorded once. Aggregate counters grow rather than keeping every old train. The current continuous scenario retains the initial siding inspection; recurring random fault generation is not claimed. Assistance and pace retain the same meanings as the fixed shift. A player can still create congestion by withholding useful departures; interlocking is not an automatic timetable optimiser.
+
+Continuous snapshots validate the generator, template-derived itineraries and due times, ID uniqueness, dwell rules, score aggregates and active-resource invariants. Restoring pauses and never simulates offline elapsed time. The independent long-run suite covers several complete template cycles, siding departure/reuse, score-once behaviour and seeded save/resume determinism.
+
+## A complete offline release
+
+The Python build prepares the same three public photo assets and writes a content-derived build version, `precache-manifest.json` and generated `sw.js`. The committed worker is a source template. The manifest lists the seventeen public HTML/CSS/JavaScript/photo files with SHA-256 hashes; the worker additionally caches the manifest itself. It does not discover repository contents or cache the research dossier, Python scripts, environment files or arbitrary requests.
+
+Installation downloads and verifies every listed response before the worker can activate. A missing, non-successful or mismatched asset rejects that install; an existing release remains active. Each release uses a distinct cache name scoped to its app path. The active worker serves the exact cached release, repairing an evicted known asset only if the fetched bytes still match that release. Otherwise it gives an unavailable response rather than mixing versions. Decoded response bodies have transfer encoding/length headers removed before storage.
+
+The worker does not call skipWaiting or clients.claim. On the first visit More shows download/cached status; after the complete cache exists, an explicit reload enables the controlled copy. An offline refresh also navigates through the active cached worker. Only a controlled page with all its matching assets cached says **Offline ready in this browser**. The browser can refuse/evict storage, so readiness is an observed local copy rather than permanent storage or device sync.
+
+Updates download into a separate cache and wait naturally while existing game tabs are open. More reports an available update and asks the player to close all game tabs and reopen. It never reloads or switches an active game automatically. Activation removes only this app path's older caches. Game saves and sound preferences stay in their existing browser-local storage independently of the asset cache.
+
+Registration and asset URLs are relative to the built module/worker directory. Supported entry addresses are that directory, its index.html, and query/hash variants. There is no deep-route router: navigation fallback is limited to the exact same-origin app entry, and unrelated paths are neither cached nor answered with the game. HTTPS or localhost is required for service workers; an unsupported or insecure browser remains playable online and reports offline unavailability discreetly in More/settings. No installation, backend or new JavaScript package is required.
+
+The lifecycle choices follow [MDN's service-worker guide](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) and [the service-worker lifecycle explanation](https://web.dev/articles/service-worker-lifecycle). Build regression tests verify the exact public allowlist, every output hash, worker/HTML version agreement, deterministic rebuilds and version changes after source edits. See [QA report](qa-report.md) for actual offline refresh, photographs, subpath and update tests; those require a real browser, not a claim based on navigator.onLine.

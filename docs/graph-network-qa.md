@@ -2,6 +2,8 @@
 
 The six-location graph passes the bounded acceptance review below. The earlier two-station network has been superseded; the four classic shifts remain available. Evidence was collected against the local prepared build on 24 October 2026.
 
+The later notice-dismissal, offline-cache and continuous-operation increment is reviewed separately in [offline and continuous acceptance review](offline-continuous-qa.md). Fixed seven-service checks below remain valid for Fixed shift mode.
+
 The acceptance target is an operational multi-branch railway rendered from the same topology used for route checks. A more intricate picture alone does not meet that target.
 
 | Area | Acceptance criterion |

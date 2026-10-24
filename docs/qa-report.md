@@ -4,7 +4,7 @@ Classic game reviewed 23 October 2026; audio, source-layout and connected-networ
 
 ## Deterministic simulation
 
-`npm test` passes all 27 checks: ten classic railway checks in `tests/acceptance.test.mjs`, four audio checks in `tests/sound.test.mjs`, nine graph operating checks in `tests/network-acceptance.test.mjs` and four graph authoring/path checks in `tests/network-topology.test.mjs`. `npm run check` passes all eight source modules under `app/`.
+`npm test` passes all 33 checks: ten classic railway checks, four audio checks, nine fixed-graph operating checks, four topology checks, five continuous/dismissal checks and one offline build-integrity check. `npm run check` passes all eleven source modules/templates under `app/`.
 
 1. A paused railway remains unchanged even when elapsed time is requested.
 2. Points must match the route; authority is proved before movement; points remain locked through tail clearance.
@@ -78,6 +78,12 @@ The later photo-informed mimic-panel refinement passed the same 27 tests and a s
 The mouse-pan follow-up reproduced unwanted native text selection, then verified full background/label drags without selection, cancellation cleanup, working point clicks and selectable prose outside the map. Ordinary rail joins stayed connected at high zoom while inactive turnout legs remained deliberately disconnected. Twenty representative viewport/zoom label layouts had no measured point-control overlaps with each other or station/window/signal fittings, retained 44-pixel targets and truthful leaders, and stayed stable across live ticks. Detailed evidence and touch-emulation limits are in the linked graph review; all 27 tests and syntax checks remained green.
 
 The current viewport-filling workbench also passed a complete touch journey inside actual Chromium fullscreen: 29 movements, seven services, score 100 at 390 railway seconds, with landscape-to-portrait resize and no document scrolling. Standing/moving trains, receiving windows and a point were operated on the map; waiting services used Services. Reports, precise siding Locate, acknowledgement and explicit release completed correctly. Fullscreen dialogs stayed inside the fullscreen root; exit/Escape, rejected/unavailable API fallback, retry, paused reference/settings, focus restoration, pinch/resize cancellation and paused save restoration passed bounded checks. The detailed graph review distinguishes actual browser API evidence from controlled failures and Android hardware limits. No Android system-bar hiding is claimed as tested.
+
+## Dismissal, offline use and continuous operation — 24 October 2026
+
+Dismissal now hides only the named banner and survives offline reload without acknowledging or releasing protection; Reports and the map retain the condition, and the later clear report reappears. A deterministic continuous run completed 52 services over 3,200 seconds with bounded state and eight distinct freight visits to each reused siding. A fullscreen touch sample continued to eight completions/800 points through 45 movements; session pause, separate fixed/continuous records and classic records remained intact.
+
+Actual network-disabled reloads verified root and subpath entries, complete local photographs and paused saves. The first uncontrolled page successfully refreshed offline after installation completed. An isolated two-release service-worker test retained coherent old assets until all game clients closed, then activated and reloaded the new release offline. Digest failure left no partial cache; first-ever offline access remained unavailable. See [offline and continuous acceptance review](offline-continuous-qa.md) for measured scope, fixtures and hosting/device limits.
 
 ## Device limitations
 

@@ -1,6 +1,7 @@
 import {VERSION,SCENARIOS,createState,command,step,hint,formatTime,availableTrain,lockAt,throatFor,validateState} from './sim.mjs';
 import {createDeskSound} from './sound.mjs';
 import {createNetworkDesk} from './network-ui.mjs';
+import {createOfflineSupport} from './offline.mjs';
 const app=document.querySelector('#app');
 const SAVE_KEY='last-block-save-v1';
 let state=createState(),records={},difficulty='guided',overlay='welcome',saveWarning='';
@@ -27,7 +28,8 @@ function soundLabel(){return audio.status==='blocked'?'Retry sound':audio.status
 function soundButton(){return action('sound',soundLabel(),'quiet',`aria-pressed="${audio.enabled}" aria-label="${audio.status==='blocked'?'Sound blocked: tap to retry':audio.enabled?'Mute sound':'Enable sound and play test chime'}"`);}
 
 const action=(name,label,cls='',attrs='')=>`<button class="${cls}" data-action="${name}" ${attrs}>${label}</button>`;
-const networkDesk=createNetworkDesk({sound:audio,soundButton,onChange:()=>render(),onExit:()=>{overlay='menu';state.paused=true;save();render();}});
+const offline=createOfflineSupport({onChange:()=>render()});
+const networkDesk=createNetworkDesk({offline,sound:audio,soundButton,onChange:()=>render(),onExit:()=>{overlay='menu';state.paused=true;save();render();}});
 function statusLabel(t){return {scheduled:'Not yet due',waiting:'Waiting at boundary',arriving:'Arriving · route locked',platform:t.phase>=t.dwell?'Ready to depart':`Boarding · ${Math.max(0,t.dwell-t.phase)}s`,departing:'Departing · route locked',done:'Clear of district'}[t.status];}
 function berth(id,x,y,w=86){return `<rect class="berth" x="${x}" y="${y}" width="${w}" height="29" rx="2"/><text class="train-num" x="${x+w/2}" y="${y+20}" text-anchor="middle">${esc(id||'— — —')}</text>`;}
 function board(){

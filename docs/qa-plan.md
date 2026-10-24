@@ -43,6 +43,14 @@ Verify a complete touch journey through the map-first workflow: waiting services
 
 Test the actual user-gesture Fullscreen API where supported: the fullscreen root must contain the map, controls and dialogs, expose Exit, handle external exit/Escape and remeasure its camera/targets. Rejected or unavailable fullscreen must leave a usable viewport-filling desk with an explanation. Check focus restoration, resize, point-label placement and safe-area styling without claiming real Android system-bar behaviour. Reuse domain tests and distinguish browser API evidence, emulated touch and controlled rejection fixtures from physical-device testing.
 
+## Notice dismissal, offline use and continuous operation follow-up
+
+Dismissal hides only the named event's banner. It must survive save/resume without acknowledging the report, resolving its condition or releasing its protected resource. Reports/badges and map protection remain available; a later event receives its own visible notification. Explicit acknowledgement and release retain their existing checks.
+
+Verify a complete service-worker installation and cached static asset inventory before advertising offline readiness. Use actual disabled network for reload, supported entry URLs, local photographs and paused saved-game restoration. First-ever offline access must not be claimed. Inspect the static scope/allowlist and update policy; where practical use an isolated two-release fixture to distinguish waiting updates, consistent old/new assets and user-controlled activation from forced reloads. Do not cache repository material, docs or unrelated origin requests.
+
+For continuous operation, exercise seeded admission and several roster cycles using legal commands. Check determinism, pause/resume equivalence, bounded active/history state, real freight departures that free sidings, running score awarded exactly once per completed journey, route exclusion and point locks, and separate saves/records from fixed and classic modes. A fullscreen touch sample must continue beyond the initial wave and demonstrate live totals rather than the fixed seven-service handover.
+
 ## Evidence and limitations
 
 For the current graph network, additionally require continuous offered paths to actual destinations, operational use of every declared edge, shared-resource exclusion through tail clearance, correct drawn Normal/Reverse connectivity, general rendering of unrelated graph IDs, whole-row timetable selection, touch camera interaction across a live tick, explicit network-schema recovery and preservation of all four classic chapters. [Graph network acceptance review](graph-network-qa.md) records the bounded checks and observed results for this increment.

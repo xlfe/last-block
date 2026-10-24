@@ -35,7 +35,7 @@ The next shift unlocks on completion. Replay a completed shift from Shifts or th
 
 ## The junction district
 
-Choose **Network desk** in the classic header or **Open the network shift** on the welcome/shift menu. The original four shifts remain available from **More → Exit desk · classic shifts**. The network shift has seven services and a continuous operational map: Mizuno, Kawara Junction, Higashi, Ume Town, Kitayama and Freight Depot. Northern services use the branch; a relief local runs through the depot loop; two freights finish parked in separate sidings. Parallel upper/lower trunk paths share station fans and do not provide independent double-track capacity throughout.
+Choose **Network desk** in the classic header or **Open the network shift** on the welcome/shift menu. The original four shifts remain available from **More → Exit desk · classic shifts**. The fixed network shift has seven services and a continuous operational map: Mizuno, Kawara Junction, Higashi, Ume Town, Kitayama and Freight Depot. Northern services use the branch; a relief local runs through the depot loop; two freights finish parked in separate sidings. Parallel upper/lower trunk paths share station fans and do not provide independent double-track capacity throughout.
 
 Start the network shift paused, then Resume. Select a train window or moving marker on the map, or open **Services** and tap anywhere on its timetable row for a waiting/boundary service. Selection never dispatches a train. Open **service Controls**, choose its next destination berth and inspect the offered path variants. **Set all required points** prepares the switches without giving authority; **Confirm path** rechecks the complete live path, reserves its sections and points together, then proves it before movement. Individual point positions remain available in the preview and Points inspector. A locked point cannot move until the train's tail clears.
 
@@ -45,7 +45,17 @@ The shared clock, Pause, Reports, Services, selected-service Controls and camera
 
 **Fullscreen** requests browser fullscreen from your tap, including a request to hide navigation UI. The entire network root enters fullscreen, so reports, route sheets, settings and dialogs remain available. **Exit fullscreen** returns to the viewport desk; it does not abandon the shift. Android/Chrome decides whether system bars hide, remain or reappear with an edge gesture. If fullscreen is unavailable or refused, a visible message appears and the viewport desk remains usable. No installation or native permission is required. Hidden tabs still pause the railway; changing fullscreen itself does not advance, reset or resume time. Physical Android fullscreen/system-bar behaviour has not yet been verified.
 
+Choose **Fixed shift** for the seven-service handover or **Continuous** for a rolling timetable and running points. Continuous admits at most four services, assigns their due times on admission, and keeps the same railway clock and resource state indefinitely. Freight loads for 30 railway seconds, then you route it back out of the siding. Completed boundary journeys earn 25–100 points according to lateness; refused commands do not cost points. The score button opens a paused summary with completed/on-time totals, last award and quality. More → Fixed shift / Continuous switches between separately saved desks; a new session requires explicit Start.
+
+The protected-siding banner has **Dismiss banner**: it hides that notice without reading the report or releasing protection. Reports keeps the item and can show its banner again. A new completion report appears separately. Use Acknowledge and then Release when the work is actually clear.
+
 The graph shift uses a new, separate browser save (`last-block-network-v2`). The old two-station network snapshot is retained under its previous key and produces an explicit new-layout notice. It is not guessed onto the new map. A damaged/incompatible new snapshot is kept untouched until you explicitly start a new shift. The four classic records and their save format remain unchanged. Reloading or hiding the tab pauses the whole railway; no offline time advances.
+
+## Offline use
+
+Open the site online over HTTPS (or localhost) once and let the complete offline copy download. **More** shows the status. When it says the copy is cached, the first refresh can be online or offline; its reload action is also available. Once controlled and complete it says **Offline ready in this browser**. Refreshing works without a network, including the museum photographs. Plain HTTP on a tablet's LAN address cannot register a service worker; HTTPS hosting supports it.
+
+Updates wait while game tabs are open. When More reports an update, close all game tabs and reopen the same address. No active game is forcibly reloaded. Offline assets and game saves are separate local browser storage: clearing site data or browser eviction can remove them, and neither syncs across devices. Root/index entry URLs and their query/hash variants are supported; there is no deep-route URL scheme. See [offline and continuous design](docs/offline-continuous.md).
 
 ## Verify
 
@@ -56,7 +66,7 @@ node --test tests/*.test.mjs
 
 Hand-authored source lives in `app/`; `scripts/build.py` prepares `dist/` from that source and three original JPEG input files under `images/`. Generated web copies, screenshots and browser scratch files are not source deliverables. The companion photographic research dossier remains local reference material.
 
-The independent behavioural suite exercises route proving, conflicting movements, tail-clear locking, work protection, power recovery, pause, all four shifts in both modes, and mixed command sequences. See [QA report](docs/qa-report.md) for the actual browser coverage and remaining limits. Browser touch emulation is not physical Android testing; no child playtesting has been performed.
+Tests use the launch prerequisites, including Python/Pillow for an isolated offline-build regression. The independent behavioural suite exercises route proving, conflicting movements, tail-clear locking, work protection, power recovery, pause, all four shifts in both modes, and mixed command sequences. See [QA report](docs/qa-report.md) for the actual browser coverage and remaining limits. Browser touch emulation is not physical Android testing; no child playtesting has been performed.
 
 - [Architecture and safety model](docs/architecture.md)
 - [Game design and future scope](docs/game-design.md)
