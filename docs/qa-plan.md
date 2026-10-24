@@ -37,6 +37,12 @@ Check representative desktop (1440×900), tablet landscape (1024×768), tablet p
 - Status is communicated by text/shape as well as colour; motion and sound have usable controls where included.
 - Keyboard users can reach and activate primary controls with visible focus. No uncaught browser errors, missing required assets or failing local requests.
 
+## Full-viewport network workbench follow-up
+
+Verify a complete touch journey through the map-first workflow: waiting services via Services, standing/moving services via map targets, named point inspection, destination/path preview, alignment and confirmation, and offscreen protection reports with separate Locate, Acknowledge and Release actions. The clock, Pause, Reports and necessary sheet controls must stay within landscape and portrait tablet viewports without document scrolling. Operational sheets must retain map context; blocking reference/settings must pause globally and remain paused when closed.
+
+Test the actual user-gesture Fullscreen API where supported: the fullscreen root must contain the map, controls and dialogs, expose Exit, handle external exit/Escape and remeasure its camera/targets. Rejected or unavailable fullscreen must leave a usable viewport-filling desk with an explanation. Check focus restoration, resize, point-label placement and safe-area styling without claiming real Android system-bar behaviour. Reuse domain tests and distinguish browser API evidence, emulated touch and controlled rejection fixtures from physical-device testing.
+
 ## Evidence and limitations
 
 For the current graph network, additionally require continuous offered paths to actual destinations, operational use of every declared edge, shared-resource exclusion through tail clearance, correct drawn Normal/Reverse connectivity, general rendering of unrelated graph IDs, whole-row timetable selection, touch camera interaction across a live tick, explicit network-schema recovery and preservation of all four classic chapters. [Graph network acceptance review](graph-network-qa.md) records the bounded checks and observed results for this increment.
