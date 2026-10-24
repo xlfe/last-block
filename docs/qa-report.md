@@ -73,6 +73,8 @@ See [complexity UX review](complexity-ux-review.md) for measured bounds, test sc
 
 The replacement network contains six locations, 25 functional points and 104 operational edges. A complete Guided/Steady touch journey confirmed 29 paths, finished all seven services at 391 railway seconds and scored 100 with two freights physically parked. The original four-shift chooser and classic scores remained intact; First bells was completed again by touch and opened the next chapter. Current model, rendering, row-selection, camera and schema-2 save evidence and explicit limits are recorded in [graph network acceptance review](graph-network-qa.md).
 
+The later photo-informed mimic-panel refinement passed the same 27 tests and a short touch route smoke. Signal lamps followed proof/authority and tail clearance, idle number windows stayed blank, real IDs remained visible, point blades followed actual turnout geometry, and the unrelated-ID renderer fixture still worked. Desktop and both tablet layouts retained 44-pixel controls and approximately 12-pixel minimum station headings at Fit. The linked review records the detailed visual-regression evidence; no simulation or save-schema change required another full campaign.
+
 ## Device limitations
 
 No physical Android tablet or child playtester was available. Chromium viewport checks and touch emulation do not establish real-device readability, Chrome browser chrome/rotation behaviour, audio policy, tablet performance or independent comprehension by an eight-year-old.
