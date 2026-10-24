@@ -75,6 +75,8 @@ The replacement network contains six locations, 25 functional points and 104 ope
 
 The later photo-informed mimic-panel refinement passed the same 27 tests and a short touch route smoke. Signal lamps followed proof/authority and tail clearance, idle number windows stayed blank, real IDs remained visible, point blades followed actual turnout geometry, and the unrelated-ID renderer fixture still worked. Desktop and both tablet layouts retained 44-pixel controls and approximately 12-pixel minimum station headings at Fit. The linked review records the detailed visual-regression evidence; no simulation or save-schema change required another full campaign.
 
+The mouse-pan follow-up reproduced unwanted native text selection, then verified full background/label drags without selection, cancellation cleanup, working point clicks and selectable prose outside the map. Ordinary rail joins stayed connected at high zoom while inactive turnout legs remained deliberately disconnected. Twenty representative viewport/zoom label layouts had no measured point-control overlaps with each other or station/window/signal fittings, retained 44-pixel targets and truthful leaders, and stayed stable across live ticks. Detailed evidence and touch-emulation limits are in the linked graph review; all 27 tests and syntax checks remained green.
+
 ## Device limitations
 
 No physical Android tablet or child playtester was available. Chromium viewport checks and touch emulation do not establish real-device readability, Chrome browser chrome/rotation behaviour, audio policy, tablet performance or independent comprehension by an eight-year-old.
