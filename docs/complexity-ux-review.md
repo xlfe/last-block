@@ -1,6 +1,6 @@
 # Complexity UX review
 
-Reviewed 24 October 2026. The shipped connected shift passes this review, with the device and playtest limits below. It adds two stations/districts and one shared single-track link; the larger network ladder remains a design proposal. The four original shifts remain available.
+Historical review of the earlier two-station increment, 24 October 2026. The current six-location graph supersedes that network; see [graph network acceptance review](graph-network-qa.md) for current shipped evidence. The observations below describe the earlier implementation. The four original shifts remain available.
 
 ## Acceptance and observed evidence
 

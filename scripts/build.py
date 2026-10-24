@@ -15,7 +15,7 @@ PHOTOS = {
     'mimic-board.jpg': 'PXL_20261023_063018289.jpg',
     'power-desk.jpg': 'PXL_20261023_062925354.jpg',
 }
-SOURCES = ('index.html', 'styles.css', 'app.mjs', 'sim.mjs', 'sound.mjs', 'network.mjs', 'network-ui.mjs')
+SOURCES = ('index.html', 'styles.css', 'app.mjs', 'sim.mjs', 'sound.mjs', 'network.mjs', 'network-ui.mjs', 'network-data.mjs', 'network-paths.mjs', 'network-renderer.mjs', 'graph.css')
 for name in (*[ROOT / 'app' / name for name in SOURCES], *[ROOT / 'images' / name for name in PHOTOS.values()]):
     if not name.is_file():
         sys.exit(f'Required source input missing: {name.relative_to(ROOT)}')

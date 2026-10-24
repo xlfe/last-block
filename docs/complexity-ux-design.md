@@ -1,5 +1,7 @@
 # A larger railway, one readable desk
 
+**Superseded network presentation:** the later request requires a complex continuous whole-network board **inside the network shift only**. Use [complex network design](complex-network-design.md) for the current topology and visual target. The two-station/two-district delivery below records the earlier increment; its accessibility, global-clock and acknowledgement principles remain useful, but its tab-led network default is superseded. The classic/network choice and four classic shifts remain available unchanged.
+
 Design and implementation brief, 24 October 2026. The user approved a connected-district implementation after reviewing the recommendation. This document separates that immediate release target from the larger ladder; delivery observations belong in [complexity UX review](complexity-ux-review.md). The [clickable control-room study](../design/control-room-study.html) uses invented static data to review navigation, tactile controls and attention management. The existing four-shift, one-station game described in [architecture](architecture.md) is retained alongside the new connected shift. The study is a secondary design record, not the expanded playable game. Technical expansion is considered separately in [network scaling architecture](network-scaling-architecture.md).
 
 ## Recommendation

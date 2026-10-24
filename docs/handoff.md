@@ -1,8 +1,8 @@
 # Local handover — 24 October 2026
 
-The Last Block is playable as four classic shifts plus a connected two-district network shift. See [README](../README.md) for launch commands and the first-minute walkthrough, [architecture](architecture.md) for the simulation boundary, and the [QA report](qa-report.md) for observed evidence and device limits.
+The Last Block is playable as four classic shifts plus a complex six-location graph network shift. See [README](../README.md) for launch commands and the first-minute walkthrough, [architecture](architecture.md) for the simulation boundary, and the [QA report](qa-report.md) for observed evidence and device limits.
 
-Final verification: `npm run check` passes; `npm test` passes 23/23 railway, connected-network and audio behavioural checks. Touch-emulated Chromium completed all four Guided shifts through the public interface, including work release and standby recovery. No blocking defect remained. Physical Android, child comprehension, screen-reader use, audible sound output and genuine browser background transitions were not verified. The owned preview server has been stopped. No dependencies were installed and nothing was deployed.
+Final verification: `npm run check` passes; `npm test` passes 27/27 railway, graph-topology, connected-network and audio behavioural checks. Touch-emulated Chromium completed all four Guided shifts through the public interface, including work release and standby recovery. The expanded Guided network also completed all seven services through 29 touch-operated movements, scoring 100 with two freights parked; a fresh classic First bells and Next shift flow passed. No blocking defect remained. Physical Android, child comprehension, screen-reader use, audible sound output and genuine browser background transitions were not verified. The owned preview server has been stopped. No dependencies were installed and nothing was deployed.
 
 ## Git status
 
@@ -16,8 +16,10 @@ The original default-off toggle did not persist and gave no confirmation when en
 
 The user subsequently confirmed that sound works in their own browser. The automated browser checks establish signal generation and lifecycle behaviour; they do not inspect the user’s physical output device.
 
-## Connected-district follow-up
+## Complex network follow-up
 
-The Connecting line adds Mizuno and Higashi, two tracks at each station, four on-board point selectors and six trains that each stop at both stations. The far berth, both relevant point groups and the shared single line reserve together; there are no cosmetic independent district timers. Guided/Independent assistance and Steady/Brisk pace are separate. Reports and Services remain live operating views; Help/Journal pause globally. Locate explicitly reveals the chosen district board, without acknowledging the report.
+The network shift now has six locations, 25 working points, a northern branch, parallel trunk choices, a through-depot relief loop and two terminal sidings. Seven service itineraries use real graph paths and finish with two freights parked. The whole timetable row selects a service; the selected service's Controls opens its route tray. Prepare points, then Confirm path; selection and preparation grant no authority. The selected connected point leg is visible on the map. Fit/Home and screen-space controls preserve usable overview/detail navigation.
 
-Classic progress and its save format are preserved. Network progress has a separate validated snapshot and best score. A traffic-regulation guard keeps an exchange berth free for an opposing service, alongside the physical conflict checks. The six-station interaction study is a labelled future concept, not the implemented network. See [network architecture](network-scaling-architecture.md), [complexity design](complexity-ux-design.md) and the QA report for evidence and limits.
+Classic UI, four shift records and save format remain unchanged. Network schema 2 has a separate key; the earlier two-station snapshot stays stored with an explicit restart notice. The renderer consumes declarative geometry and current resource state using stable SVG plus CSS camera transforms. GPU composition is browser-dependent, with no measured acceleration claim. See [graph architecture](graph-rendering-architecture.md), [current design](complex-network-design.md) and [graph QA](graph-network-qa.md).
+
+The source-only follow-up uses the same authorised one-command hooks override. Generated build output, browser screenshots and scratch are excluded. The original local evidence outside the three tracked build inputs remains untouched. Launch with `npm start`; no new dependencies or deployment are involved.

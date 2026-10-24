@@ -1,6 +1,6 @@
 # Scaling the railway without replacing the game
 
-Architecture and implementation follow-up, 24 October 2026. The four classic shifts remain intact. The first connected-district increment described below is now implemented in `app/network.mjs` and `app/network-ui.mjs`; larger graph authoring and additional districts remain proposals. Read it with the [complexity UX design](complexity-ux-design.md) and [interactive control-room study](../design/control-room-study.html). The network and equipment behaviours remain authored teaching rules, not a recovered historical interlocking table.
+Architecture and implementation follow-up, 24 October 2026. The four classic shifts remain intact. This document records the earlier incremental plan. The graph expansion is now delivered; its current implementation contract is in [graph/rendering architecture](graph-rendering-architecture.md). Historical two-station descriptions below describe the superseded increment, not the current network shift. Read it with the [complexity UX design](complexity-ux-design.md) and [interactive control-room study](../design/control-room-study.html). The network and equipment behaviours remain authored teaching rules, not a recovered historical interlocking table.
 
 Keep the existing deterministic `createState` → `command` → `step` boundary. Extend the railway data and its resource checks, then give the same state several views. More screenfuls must not create separate railways or clocks. No framework, server state, worker or database is needed for the next increment.
 
@@ -32,7 +32,7 @@ The minimum additions are:
 - **Route definition:** entrance, destination, ordered sections, required point positions, protected/conflicting resources and release condition.
 - **Movement state:** train ID, route ID, progress and occupied sections, with enough information to retain locks until the train's tail clears.
 
-For the next release, author a finite catalogue of legal routes. An endpoint selection looks up those routes and displays the choices. Do not ask a shortest-path algorithm to invent signal authority. A graph is useful for reachability and drawing connections; authored route tables decide which movements the fictional equipment permits. Signal overlaps or flank protection, if introduced, must be explicit resource requirements rather than inferred from a crossing on the page.
+The original plan favoured a finite route catalogue. The delivered expansion instead offers bounded graph paths between explicitly authored service stops, rejecting contradictory turnout requirements and intermediate boundaries. These candidates do not establish signal authority: the central live checks and atomic reservation do. This is an authored game abstraction, not a real railway route table. Signal overlaps or flank protection, if introduced, must be explicit resource requirements rather than inferred from a crossing on the page.
 
 Retain the current compressed timings initially. Replace the single progress interval with a short ordered list of section transitions when trains actually travel between stations. Include train length/tail clearance in that authored movement model before introducing sectional release. Reserve the complete route until its tail clears in the first increment; this is conservative and easier to explain than a partly implemented release system.
 
@@ -95,7 +95,7 @@ Across those increments, preserve tests for proof before authority, conflicting-
 
 The implemented first milestone is one connected neighbour operated from two views: the player can see where a decision is needed, locate its equipment and make it safely on a tablet.
 
-## Delivered boundary
+## Earlier delivered boundary (superseded)
 
 The Connecting line adds Mizuno and Higashi, each with two tracks, a single canonical shared link, four point groups and six trains making complete two-stop journeys. The route catalogue is deliberately limited to authored arrival/transfer/exit patterns derived from each train's direction and stop count. The model does not search a general graph. Transfer confirmation reserves both berths, both relevant entrances and the line atomically; both ends' point positions must be set and remain locked through the movement.
 
@@ -106,3 +106,7 @@ To prevent the novice from filling both stations without a passing berth, the au
 The network uses its own versioned snapshot and leaves classic saves/records intact. It validates canonical resource/point membership, route ownership and train state before rendering a restored desk. Broader classic-to-graph migrations, arbitrary station lengths, sectional release, cancellation after authority and general network editing remain outside this increment. See the QA report for observed tests; future acceptance criteria above are not claims of implementation.
 
 Point detents in this increment change immediately while unlocked; the timed two-second proof belongs to the route. Point-motor delays/failures are not simulated. View and selected-service fields currently share the network snapshot but do not participate in resource checks. A general split between operational and view storage remains a later refactor.
+
+## Current delivered boundary
+
+The network mode now has a continuous six-location, 25-turnout graph and seven service itineraries using every drawn edge across offered routes. Geometry, resources and point legs are declarative. The graph renderer is generic SVG with a stable transformed world layer; camera navigation is independent of railway state. Classic four-shift UI and saves remain separate and accessible. See [current architecture](graph-rendering-architecture.md), [complex network design](complex-network-design.md) and [graph QA](graph-network-qa.md) for the current scope and observed checks. No editor, sectional release, arbitrary layout import or real operating certification is provided.

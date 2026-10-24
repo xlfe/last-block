@@ -39,4 +39,6 @@ Check representative desktop (1440×900), tablet landscape (1024×768), tablet p
 
 ## Evidence and limitations
 
+For the current graph network, additionally require continuous offered paths to actual destinations, operational use of every declared edge, shared-resource exclusion through tail clearance, correct drawn Normal/Reverse connectivity, general rendering of unrelated graph IDs, whole-row timetable selection, touch camera interaction across a live tick, explicit network-schema recovery and preservation of all four classic chapters. [Graph network acceptance review](graph-network-qa.md) records the bounded checks and observed results for this increment.
+
 Use deterministic Node behavioural tests where the simulation exposes an importable API; use the existing Playwright MCP browser for the rendered game. Keep the final report in tracked source documentation; generated screenshots, recordings and other output remain local and untracked. Record viewport sizes, tested journeys, exact check commands and any unresolved defect. For audio, distinguish WebAudio context state and measured signal from human verification of speaker output. Desktop viewport resizing and emulated touch are supporting evidence, not a claim of testing real Android hardware. A real Android Chrome check remains a handover item if no device is available.

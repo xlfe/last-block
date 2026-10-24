@@ -1,5 +1,7 @@
 # The dispatcher's desk
 
+First-release classic-shift design. The current user direction adds a complex continuous board **to the network shift only**; [complex network design](complex-network-design.md) specifies that extension. This small-station/four-shift campaign, its presentation, saves and visible access remain intact alongside the network shift.
+
 Design brief, 23 October 2026. All characters, stories, operating sequences, timings and scoring below are authored game design. The visual and engineering references are recorded in [research notes](research-notes.md). This is a historical railway control-room game inspired by museum exhibits, rather than an exact reconstruction of one installation.
 
 ## Experience
