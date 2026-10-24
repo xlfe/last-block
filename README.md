@@ -1,8 +1,8 @@
 # The Last Block
 
-A local railway control-room game, built around photographic research into the preserved Nara Line CTC desk at Kyoto Railway Museum. Work four connected shifts at fictional Mizuno passing station: learn a route, cross opposing trains, protect a work gang, and recover the station control supply.
+A local railway control-room game, built around photographic research into the preserved Nara Line CTC desk at Kyoto Railway Museum. Work four classic shifts at fictional Mizuno passing station, then take the new **Connecting line** shift across two genuinely connected districts: Mizuno and Higashi.
 
-The playable prototype has Guided and Dispatcher modes, a live track diagram, point and route interlocking, a working timetable, telephone reports, a desk journal, shift scores and browser-local save/resume. All actions use touch-sized buttons; no keyboard or external assets are required. Its analogue appearance is research-informed; stations, route tables, timings, procedures and dialogue are authored abstractions. The complete adventure narrative and historically exact operating procedures are outside this slice.
+The classic desk has Guided and Dispatcher modes, a live track diagram, point and route interlocking, a working timetable, telephone reports, a desk journal, shift scores and browser-local save/resume. All actions use touch-sized buttons; no keyboard or external assets are required. Its analogue appearance is research-informed; stations, route tables, timings, procedures and dialogue are authored abstractions. The complete adventure narrative and historically exact operating procedures are outside this slice.
 
 ## Run locally
 
@@ -33,6 +33,20 @@ Pause whenever needed. Opening the guide, journal, museum or shifts also pauses 
 
 The next shift unlocks on completion. Replay a completed shift from Shifts or the handover. Starting a new shift replaces the current desk while preserving best scores. Save data stays in this browser at this exact origin; changing host, port, device or browser creates separate saves. There is no account, cloud sync or export. Clearing browser site data clears progress. A corrupt/unavailable save produces an in-game warning.
 
+## The connecting line
+
+Choose **Network desk** in the classic header or **Open the network shift** on the welcome/shift menu. Six services must each stop at Mizuno and Higashi before leaving. This is one additional authored shift with two two-track stations and one shared single-track link; larger junction networks remain future scope.
+
+The district strip, shared clock, Pause, Reports and Services remain available while operating the desk. Switching districts keeps time running and retains the selected service; it clears an unconfirmed preview. Tap the diagram's track windows or route endpoints to prepare a path. The on-board yellow handles have labelled Track 1/2 buttons, so turning/dragging a dial is never required. A crossing preview includes both stations' required point controls. Set them, then **Confirm path**; confirmation rechecks both ends and reserves the shared line and receiving berth together.
+
+Keep an exchange berth for a train at the neighbour. This authored operating rule can hold a new boundary arrival to prevent filling both stations without somewhere to pass. It supplements the physical conflict checks. The desk names the service needing that berth.
+
+**Guided / Independent** controls hints and whether a new important report pauses once. **Steady 1× / Brisk 2×** controls the global pace independently; neither changes the two-station layout or safety rules. Every new desk starts paused. Help and Journal pause the whole railway and leave it paused on return. Reports and the Services picker are operating views: they keep running unless already paused, with a Pause button in the report dialog.
+
+Reports follow both districts. **Locate** changes the view; **Acknowledge** records reading; **Release Track 2 protection** remains a separate action after the foreman's clear report. Routine train notices resolve when their next movement is confirmed. The handover needs all six trains clear and Higashi's work protection safely released.
+
+Network progress and its best score use a separate versioned browser save. The four classic records and their existing save format are preserved. Reloading or hiding the tab pauses the whole network; there is no offline catch-up. A rejected network save shows a recovery warning without changing the classic shift records.
+
 ## Verify
 
 ```fish
@@ -48,6 +62,8 @@ The independent behavioural suite exercises route proving, conflicting movements
 - [Game design and future scope](docs/game-design.md)
 - [Research-to-game decisions](docs/research-notes.md)
 - [QA plan](docs/qa-plan.md)
+- [Network scaling architecture](docs/network-scaling-architecture.md)
+- [Complexity and control design](docs/complexity-ux-design.md)
 
 ## Photographic research (local companion dossier)
 

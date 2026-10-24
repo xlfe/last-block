@@ -1,10 +1,10 @@
 # QA report — The Last Block
 
-Game reviewed 23 October 2026; audio and source-layout follow-up reviewed 24 October 2026. Status: the local release passes the checks below; no blocking defect remains from this review. This report records observed behaviour, rather than treating the design specification as test evidence.
+Classic game reviewed 23 October 2026; audio, source-layout and connected-network follow-ups reviewed 24 October 2026. Status: the local release passes the checks below; no blocking defect remains from this review. This report records observed behaviour, rather than treating the design specification as test evidence.
 
 ## Deterministic simulation
 
-`npm test` passes all fourteen checks: ten railway checks in `tests/acceptance.test.mjs` and four audio checks in `tests/sound.test.mjs`. `npm run check` also passes the source simulation, interface and sound-module syntax checks under `app/`.
+`npm test` passes all 23 checks: ten classic railway checks in `tests/acceptance.test.mjs`, four audio checks in `tests/sound.test.mjs` and nine connected-network checks in `tests/network-acceptance.test.mjs`. `npm run check` passes the source simulation, interface and sound-module syntax checks under `app/`.
 
 1. A paused railway remains unchanged even when elapsed time is requested.
 2. Points must match the route; authority is proved before movement; points remain locked through tail clearance.
@@ -58,6 +58,16 @@ Browser checks used actual Chromium WebAudio contexts with observers on destinat
 | Gameplay isolation | The paused railway save was byte-for-byte identical before and after mute, enable, suspension and retry. Reload restored its paused state. |
 
 The sound test preference survived reload independently of campaign progress. Browser failure cases used controlled API overrides and are labelled as such; an organically blocked Chrome policy was not encountered in this session. The source-only layout was verified by running the fourteen tests and syntax checks against `app/`; reproducible `dist/` output and generated browser captures remain outside the committed source.
+
+## Connected network — 24 October 2026
+
+The new two-district shift passes nine independent model checks for shared-link exclusion, far-berth protection, exchange-berth regulation, preview revalidation, global time, event lifecycle and save consistency. All classic and audio regressions remain green.
+
+A complete Guided/Steady touch journey at 1024×768 confirmed 18 paths and brought all six trains through both stations, then out of the railway. It finished at 245 railway seconds with score 100, six on time, no outstanding reports and no uncaught page errors. Its seeded classic active save and four existing scores remained unchanged. Separate checks covered a live transfer restored paused with its resource locks, changing assistance/pace without changing reservations, invalid-save fallback, Reports staying live in Independent mode, Help remaining paused, district/preview focus and keyboard point operation.
+
+The final layouts passed horizontal-overflow and 44-pixel button checks at 1440×900, 1024×768, 768×1024 and 390×844. Transfer point controls and Confirm fit together on both tablet viewports, with clock/Pause/Reports accessible in the sticky global strip. Locate now reveals and focuses the affected board even after deep scrolling, without acknowledging the report or changing the railway clock.
+
+See [complexity UX review](complexity-ux-review.md) for measured bounds, test scope, corrected findings and remaining playtest/device limits. The implemented increment is two connected stations and one finite shift; larger network proposals are not claimed as shipped.
 
 ## Device limitations
 
